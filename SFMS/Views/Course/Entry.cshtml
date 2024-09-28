@@ -1,0 +1,91 @@
+﻿@model CourseViewModel;
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<script src="~/lib/jquery/dist/jquery.js"></script>
+@{
+    ViewData["Title"] = "Course Entry";
+}
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Course Entry</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Course/Entry">Course</a></li>
+                    <li class="breadcrumb-item active"><a href="/Course/List">List</a></li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+@if (ViewBag.AlreadyExistsMsg != null)
+{
+    <div class="alert alert-warning">
+        @ViewBag.AlreadyExistsMsg
+    </div>
+}
+<form action="/Course/Entry" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" name="Name" placeholder="Course Name" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea name="Description" class="form-control" placeholder="Course Description" required></textarea>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Opening Date</label>
+        <input type="date" class="form-control" name="OpeningDate" placeholder="Opening Date" required>
+    </div>
+   
+    <div class="mb-3">
+        <label class="form-label">Duration In Hour</label>
+        <input type="number" class="form-control" name="DurationInHour" placeholder="Duration In Hour" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Fees (MMK)</label>
+        <input type="number" id="txtFees" class="form-control" name="Fees" placeholder="Fees (MMK)" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Promotion/Discount</label>
+        <input type="checkbox" class="form-control" name="IsPromotion" >
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Percetance (%)</label>
+        <input type="number" id="txtPercetance" class="form-control" name="Percetance" placeholder="Percetance (%)" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Fixed Amount (MMK)</label>
+        <input type="number" id="txtFixed" class="form-control" name="Fixed" placeholder="Fixed Amount (MMK)" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Fees (MMK) after apply Promotion</label>
+        <input type="number" id="txtFeesAfterPromition" class="form-control" placeholder="Fixed Amount (MMK)">
+    </div>
+
+    <div class="mb-3">
+        <div class="col">
+            <input type="submit" class="btn btn-success" value="Entry">
+            <input type="reset" class="btn btn-secondary" value="Cancel">
+        </div>
+    </div>
+</form>
+<script>
+    $(document).on("click", "[type='checkbox']", function (e) {
+        if (this.checked) {
+            $(this).attr("value", "true");
+        } else {
+            $(this).attr("value", "false");
+        }
+    });
+    $('#txtFeesAfterPromition').on('input', function (e) {
+        var fees = $('#txtFees').val();
+        var percetance = $('#txtPercetance').val();
+        var fixed = $('#txtFixed').val();
+        alert(fees)
+      // $('#txtFeesAfterPromition').value = (Number(percetance) * Number(fees) / 100) + Number(fees);
+    });
+</script>

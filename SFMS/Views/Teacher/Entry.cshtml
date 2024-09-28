@@ -1,0 +1,109 @@
+﻿
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/css/bootstrap-multiselect.css" />
+<script type="text/javascript" src="https://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"></script>
+
+@{
+        ViewData["Title"] = "Teacher Entry";
+    }
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Teacher Entry</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Teacher/Entry">Teacher</a></li>
+                    <li class="breadcrumb-item active"><a href="/Teacher/List">List</a></li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+
+@if (ViewBag.AlreadyExistsMsg != null)
+{
+    <div class="alert alert-warning">
+        @ViewBag.AlreadyExistsMsg
+    </div>
+}
+<form action="/Teacher/Entry" method="post">
+    @if (ViewBag.Msg != null) {
+        <div class="alert alert-success">
+            @ViewBag.Msg
+        </div>
+    }
+    <div class="mb-3">
+        <label class="form-label">Code</label>
+        <input type="text" class="form-control" name="Code" placeholder="Code" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" name="Name" placeholder="Name" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" name="Email" placeholder="Email">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Date Of Birth</label>
+        <input type="date" class="form-control" name="DOB" placeholder="Date Of Birth" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Phone</label>
+        <input type="text" class="form-control" name="Phone" placeholder="Phone">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">National Registration Card</label>
+        <input type="text" class="form-control" name="NRC" placeholder="NRC" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Position</label>
+       <select name="Position" class="form-control">
+            <option value="SeniorLectureJava">Senior Lecture (Java)</option>
+            <option value="SeniorLectureC#">Senior Lecture(C#)</option>
+            <option value="JuniorLecture">Junior Lecture</option>
+            <option value="DatabaseLecture">Database Lecture</option>
+       </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Course</label>
+        <select name="CourseIds" class="form-control" id="CourseIds" multiple>
+            @foreach (var item in ViewBag.Courses) {
+                <option value="@item.Value">@item.Text</option>
+            }
+
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Facebook Url</label>
+        <input type="text" class="form-control" name="FacebookUrl" placeholder="Facebook Url">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Linkedin Url</label>
+        <input type="text" class="form-control" name="LinkedinUrl" placeholder="Linkedin Url">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Twitter Url</label>
+        <input type="text" class="form-control" name="TwitterUrl" placeholder="Twitter Url">
+    </div>
+    <div>
+        <label class="form-label">Address</label>
+        <textarea name="Address" class="form-control"></textarea>
+    </div>
+    <div class="mb-3">
+        <div class="col">
+            <input type="submit" class="btn btn-success" value="Entry">
+            <input type="reset" class="btn btn-secondary" value="Cancel">
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#CourseIds').multiselect({
+            includeSelectAllOption: true
+        });
+    });
+</script>

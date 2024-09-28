@@ -1,0 +1,13 @@
+﻿@{
+    if (User.IsInRole("Teacher"))
+    {
+        Layout = "AdminLTE/_LayoutTeacher";
+    }
+    else if (User.IsInRole("Admin")) {
+        Layout = "AdminLTE/_LayoutAdmin";
+    }
+    else
+    {
+        Layout = "_LayoutPublic";
+    }
+}

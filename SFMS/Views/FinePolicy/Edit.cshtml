@@ -1,0 +1,68 @@
+﻿@model FinePolicyViewModel
+@{
+    ViewData["Title"] = "Fine Policy Edit";
+}
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Fine Policy Edit</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/FinePolicy/Entry">Fine Policy</a></li>
+                    <li class="breadcrumb-item active"><a href="/FinePolicy/List">List</a></li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+
+@if (ViewBag.AlreadyExistsMsg != null)
+{
+    <div class="alert alert-warning">
+        @ViewBag.AlreadyExistsMsg
+    </div>
+}
+<form action="/FinePolicy/Edit" method="post">
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" name="Id" value=@Model.Id hidden>
+        <input type="text" class="form-control" name="Name" value=@Model.Name required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Rule</label>
+        <input type="text" class="form-control" name="Rule" value=@Model.Rule required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Fine Amount (MMK)</label>
+        <input type="number" class="form-control" name="FineAmount" value="@Model.FineAmount" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Fine After Minutes</label>
+        <input type="number" class="form-control" name="FineAfterMinutes"  value="@Model.FineAfterMinutes" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Bath</label>
+        <select name="BathId" class="form-control">
+            <option value="@Model.BatchId">@Model.Batch.Name</option>
+            @foreach (var item in @ViewBag.Baths)
+            {
+                <option value="@item.Value">@item.Text</option>
+            }
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Apply</label>
+        <input type="checkbox" class="form-control" name="IsEnable" value="@Model.IsEnable" required>
+    </div>
+    <div class="mb-3">
+        <div class="col">
+            <input type="submit" class="btn btn-success" value="Update">
+            <input type="reset" class="btn btn-secondary" value="Cancel">
+        </div>
+    </div>
+</form>
+

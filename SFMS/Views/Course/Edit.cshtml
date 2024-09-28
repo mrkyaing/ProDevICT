@@ -1,0 +1,53 @@
+﻿@model CourseViewModel
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    @{
+        ViewData["Title"] = "Course Edit";
+    }
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Course Edit</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Course/Entry">Course</a></li>
+                    <li class="breadcrumb-item active"><a href="/Course/List">List</a></li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<form action="/Course/Edit" method="post">
+    <div class="mb-3">
+        <input type="text" hidden name="Id" value="@Model.Id" required>
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" name="Name"  value="@Model.Name" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea name="Description" class="form-control" required>@Model.Description</textarea>
+        <input type="text" class="form-control" name="Description"  required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Opening Date</label>
+        <input type="date" class="form-control" name="OpeningDate" value="@Model.OpeningDate.ToString("yyyy-MM-dd")" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Duration In Hour</label>
+        <input type="number" class="form-control" name="DurationInHour" value="@Model.DurationInHour" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Fees (MMK)</label>
+        <input type="number" class="form-control" name="Fees" value="@Model.Fees" required>
+    </div>
+    <div class="mb-3">
+        <div class="col">
+            <input type="submit" class="btn btn-success" value="Update">
+            <input type="reset" class="btn btn-secondary" value="Cancel">
+        </div>
+    </div>
+</form>
+
