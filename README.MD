@@ -1,6 +1,6 @@
 # SFMS/P >> Student Fund Management System/Portal
-- This system will provide for Fund Management when Student is late or leave according to Fine Policy for related batch.
-- System's stakeholders are Admin Staffs of Training/School ,Teachers ,Students and Public Users.
+- This system will provide for Fund Management when a Student is late or leaves according to the Fine Policy for related batch.
+The system's stakeholders are Admin Staff of Training/School,Teachers , Students and Public Users.
 # System Functionality List
 - User & Role Management (Authentication vs Authorization) according to Roles
 - Course Management
@@ -13,14 +13,14 @@
 - Fund Transaction List to get Fine amount from each student accroding to attending batch and fine policy when she/he late in class
 - Profile of student , his/her attendance records ,his/her fine transction records 
 - Reportings
-- Dashboard for each roles(Teacher,Admin,Student etc)
+- Dashboard for each roles(Admin,Teacher,Student etc)
 # Used Technoligies
-- ASP.NET Core 7.0 MVC With Repository Architecture Pattern 
-- ORM (Object Relational Mapper) With Entity Framework Core 7.0
+- ASP.NET Core 8.0 MVC With Repository Architecture Pattern 
+- ORM (Object Relational Mapper) With Entity Framework Core 8.0
 - Authentication & Authorization With ASP.NET Core Identity Membership 
 - UI/UX With Bootstrap 3.3 & JQuery 3.3
 - Reportings With RDLC  
-- Data Storages With MS SQL Server 2014 Express Edition
+- Data Storages With MS SQL Server 2019 Express Edition
 - Paging & Sorting With JQuery DataTables.net (crd :https://datatables.net/ )
 - Admin Dashboard With AdminLTE ( crd : https://adminlte.io/)
 - Public WebSite Template (crd: https://www.free-css.com/)
