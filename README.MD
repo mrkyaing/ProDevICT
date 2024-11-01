@@ -45,5 +45,5 @@ The system's stakeholders are Admin Staff of Training/School,Teachers , Students
 - Admin Login 
   - user name : admin@101.com
   - password  :prodev@123
-
+- web portal URL : http://sfms-env.eba-pyfmfrfq.us-east-1.elasticbeanstalk.com/
 
