@@ -1,5 +1,3 @@
-using System;
-
 namespace SFMS.Models.ViewModels
 {
     public class ErrorViewModel

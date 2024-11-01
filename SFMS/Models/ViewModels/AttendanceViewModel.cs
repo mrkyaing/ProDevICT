@@ -1,7 +1,4 @@
-﻿
-using System;
-
-namespace SFMS.Models.ViewModels
+﻿namespace SFMS.Models.ViewModels
 {
     public class AttendanceViewModel
     {
@@ -12,6 +9,6 @@ namespace SFMS.Models.ViewModels
         public string IsLate { get; set; }
         public string IsLeave { get; set; }
         public string StudentId { get; set; }
-        public virtual Student Student { get; set; }
+        public virtual Student? Student { get; set; }
     }
 }

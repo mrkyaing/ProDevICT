@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace SFMS.Models.ViewModels
+﻿namespace SFMS.Models.ViewModels
 {
     public class UserViewModel
     {

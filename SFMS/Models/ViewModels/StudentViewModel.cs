@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using System;
-using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace SFMS.Models.ViewModels
 {
@@ -16,9 +15,9 @@ namespace SFMS.Models.ViewModels
         public string Phone { get; set; }
         public string FatherName { get; set; }
         public string BathId { get; set; }
-        public string BathName { get; set; }
-        public string UserId { get; set; }
-        public virtual IdentityUser User { get; set; }
+        public string? BathName { get; set; }
+        public string? UserId { get; set; }
+        public virtual IdentityUser? User { get; set; }
 
     }
 }
