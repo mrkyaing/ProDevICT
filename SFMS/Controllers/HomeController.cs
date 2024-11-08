@@ -3,10 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using SFMS.Models;
 using SFMS.Models.DAO;
 using SFMS.Models.ViewModels;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Net.Sockets;
 using System.Net;
 using System.Security.Claims;
@@ -24,11 +21,12 @@ namespace SFMS.Controllers
             _userManager = userManager;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             ViewBag.TotalStudents = _applicationDbContext.Students.Where(x => x.IsActive == true).Count();
             ViewBag.TotalTeachers = _applicationDbContext.Teachers.Where(x => x.IsActive == true).Count();
             ViewBag.TotalNewStudentRegister = _applicationDbContext.NewStudentRegisters.Count();
+            var user = await _userManager.GetUserAsync(User);
             return View();
         }
 

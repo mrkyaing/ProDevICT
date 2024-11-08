@@ -23,13 +23,15 @@ namespace SFMS
         {
             services.AddControllersWithViews();
             services.AddRazorPages();//for identity config.
-            //services.AddDbContext<ApplicationDbContext>(options =>
-            //options.UseSqlServer(Configuration.GetConnectionString("SFMSConnectionString")));
+            services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("SFMSConnectionString")));
             //Database Connection with MySQL
+            /*
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseMySql(Configuration.GetConnectionString("SFMSConnectionStringMySQL"),
                 new MySqlServerVersion(new Version(8, 0, 35)),
                 mySqlOptions => mySqlOptions.EnableRetryOnFailure()));
+            */
             services.AddIdentity<IdentityUser, IdentityRole>
                  (options =>
                  {
